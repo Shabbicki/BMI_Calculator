@@ -8,7 +8,7 @@ public class BmiCalculator{
 
 public static void main(String[] args){
 	Scanner s = new Scanner(System.in);
-	scanner.useLocale(Locale.US);
+	s.useLocale(Locale.US);
 	
 	char repeat = 0;
 	do{
@@ -22,7 +22,8 @@ public static void main(String[] args){
 		System.out.println("Your BMI is: " +  bmi);
 		//repeat=askToRepeat(s);
 		System.out.println();
-	} while(repeat == 'Y' || repeat = 'y');
+	} while(repeat == 'Y' || repeat == 'y');
+	s.close();
 }
 // Unit - Metric and Imperial
 
@@ -66,9 +67,9 @@ public static double getValidInput(Scanner s, String prompt, double min, double 
 			if(value >= min && value <=max){
 				break;
 			}else{
-				System.out.println("Please enter a value between %1f and 1f,\n",min,max);
+				System.out.printf("Please enter a value between %1f and 1f,\n",min,max);
 				}
-				else{
+		}else{//
 				System.out.println("Invalid input: Please enter a value");
 				s.next();
 			}
@@ -76,7 +77,6 @@ public static double getValidInput(Scanner s, String prompt, double min, double 
 			return value;
 	}
 	
-}
 public static double calculateBMI(int unitChoice, double weight, double height){
 	double totalBMI;
 	if(unitChoice==1){
