@@ -10,7 +10,7 @@ public static void main(String[] args){
 	Scanner s = new Scanner(System.in);
 	s.useLocale(Locale.US);
 	
-	char repeat = 0;
+	char repeat;
 	do{
 		//all code
 		int unitChoice = getUnitChoice(s);
@@ -21,10 +21,15 @@ public static void main(String[] args){
 		double bmi = calculateBMI(unitChoice, weight, height);
 		System.out.println("Your BMI is: " +  bmi);
 		bmiStatus(bmi);
-		//repeat=askToRepeat(s);
+		repeat=askToRepeat(s);
 		System.out.println();
 	} while(repeat == 'Y' || repeat == 'y');
 	s.close();
+}
+public static char askToRepeat(Scanner s){
+	System.out.println("Do you want to repeat? Please type Y or N");
+	char choice = s.next().charAt(0);
+	return choice;
 }
 // Unit - Metric and Imperial
 
