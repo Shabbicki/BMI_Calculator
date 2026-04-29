@@ -20,6 +20,7 @@ public static void main(String[] args){
 				:getValidInput(s, "Enter your weight in inches: ", 20,100);
 		double bmi = calculateBMI(unitChoice, weight, height);
 		System.out.println("Your BMI is: " +  bmi);
+		bmiStatus(bmi);
 		//repeat=askToRepeat(s);
 		System.out.println();
 	} while(repeat == 'Y' || repeat == 'y');
@@ -85,6 +86,27 @@ public static double calculateBMI(int unitChoice, double weight, double height){
 		totalBMI = (703 * weight)/(height * height);
 	}
 	return totalBMI;
+}
+
+public static double bmiStatus(double bmi){
+	if(bmi<18.5){
+		System.out.println("You are underweight");
+	}
+	else if(bmi<25){
+		System.out.println("Great! Your weight is normal");
+	}
+	else if(bmi<30){
+		System.out.println("You are overweight");
+	}
+	else if(bmi<35){
+		System.out.println("You are obese");
+	}
+	else if(bmi>=35){
+		System.out.println("Oh no, you are severely obese");
+	}
+	
+	
+	return bmi;
 }
 
 }
