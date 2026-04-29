@@ -21,7 +21,9 @@ public static void main(String[] args){
 		double bmi = calculateBMI(unitChoice, weight, height);
 		System.out.println("\n  -----  Your BMI Summary -----");
 		System.out.println("Your BMI is: " +  bmi);
-		bmiStatus(bmi);
+		String stat = bmiStatus(bmi);
+		System.out.println("Category: "+ stat);
+		tips(String stat);
 		repeat=askToRepeat(s);
 		System.out.println();
 	} while(repeat == 'Y' || repeat == 'y');
@@ -94,25 +96,37 @@ public static double calculateBMI(int unitChoice, double weight, double height){
 	return totalBMI;
 }
 
-public static double bmiStatus(double bmi){
+public static String bmiStatus(double bmi){
 	if(bmi<18.5){
-		System.out.println("You are underweight");
+		return "You are underweight";
 	}
 	else if(bmi<25){
-		System.out.println("Great! Your weight is normal");
+		return "Great! Your weight is normal";
 	}
 	else if(bmi<30){
-		System.out.println("You are overweight");
+		return "You are overweight";
 	}
 	else if(bmi<35){
-		System.out.println("You are obese");
+		return "You are obese";
 	}
-	else if(bmi>=35){
-		System.out.println("Oh no, you are severely obese");
+	else{
+		return "Oh no, you are severely obese";
 	}
-	
-	
-	return bmi;
 }
 
+public static void tips(String stat){
+	switch(stat){
+		case "You are underweight":
+		System.out.println("Tip: Try eating a well-balanced diet and consult a professional if needed.");
+		case "Great! Your weight is normal":
+		System.out.println("Nice! Keep maintaining your healthy lifestyle");
+		case "You are overweight":
+		System.out.println("Tip: Consider doing some light exercise and healthier food choices");
+		case "You are obese":
+		case "You are obese":
+		System.out.println("Tip: It may help to seek professional guidance");
+		break;
+	}
+	
+}
 }
