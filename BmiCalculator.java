@@ -19,6 +19,7 @@ public static void main(String[] args){
 		double height = (unitChoice == 1)? getValidInput(s, "Enter your height in meters : ",0.5,2.5)
 				:getValidInput(s, "Enter your weight in inches: ", 20,100);
 		double bmi = calculateBMI(unitChoice, weight, height);
+		System.out.println("\n  -----  Your BMI Summary -----");
 		System.out.println("Your BMI is: " +  bmi);
 		bmiStatus(bmi);
 		repeat=askToRepeat(s);
